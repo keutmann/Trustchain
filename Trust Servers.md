@@ -1,6 +1,6 @@
 #Trust Servers
 
-Introduction 
+##Introduction 
 The Trustchain system consist of several components each divided into a Function server each.
 * TrustBuild
 * TrustStamp

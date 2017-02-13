@@ -1,0 +1,41 @@
+{
+  "head": {
+    "version": "standard 0.1.0",
+    "script": "btc-pkh"
+  },
+  "trust": {
+    "subject": "1ERgQJdwncLvXv16mQaKu...",
+    "subjecttype": "person",
+    "claim": [
+      {
+        "type": "trust",
+        "data": "true"
+      },
+      {
+        "type": "confirm",
+        "data": "true"
+      }
+    ],
+    "routingcost": 100,
+    "activate": 1231006505,
+    "expire": 2231006505,
+    "scope": "global",
+    "issuer": "1DuDZDtoLfNHrmSY2QUCWu...",
+    "server": "1HQkogrxHpobnrtPkeHuBm9r4s..."
+  },
+  "timestamp": [
+    {
+      "blockchain": "bitcoin",
+      "path": "MHg2ODU4ZmNkNDhmMjg1OGI4MWFmZGRmYmI0MmZ..."
+    },
+    {
+      "blockchain": "ethereum",
+      "path": "MHhiN2ZmZjQ5MDAwNWUyOWM4YmFhNjY4NzA3NmZ..."
+    }
+  ],
+  "signature": {
+    "issuer": "VGhpcyBpcyB0aGUgc2lnbmF0dXJlIGZvciB0aGUgaXNzdWVy",
+    "subject": "",
+    "server": "VGhlIHNlcnZlciBoYXMgaXRzIG93biBzaWduYXR1cmUNCg=="
+  }
+}

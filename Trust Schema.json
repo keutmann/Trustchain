@@ -1,52 +1,66 @@
+// A Trust visualized in json format.
 {
   "head": {
-    "version": "standard 0.1.0",
-    "script": "btc-pkh"
+    "version": "standard 0.1.0", // Specifies the format of the Trust and encodings.
+    "script": "btc-pkh", // Specifies the id address format and signature algos. btc-pkh is the bitcoin address format.
+    "claimtype": "simpletrust" // Specifies the format of the claim object.
   },
+  // The subject is the target of trust, issued by the issuer!
   "subject": [
     {
-      "id": "1ERgQJdwncLvXv16mQaKu...",
-      "type": "person",
-      "claim": [
-        {
-          "type": "custom",
-          "data": "test"
-        },
-        {
-          "type": "confirm",
-          "data": "true"
-        }
-      ],
-      "trust": true,
-      "confirm": true,
-      "routingcost": 100,
-      "activate": 1231006505,
-      "expire": 2231006505,
-      "scopetype": "standard",
-      "scope": "global",
-      "signature": ""
+      "id": "1ERgQJdwncLvXv16mQaKu...", // id of the subject, format specified in head->script.
+      "type": "person", // Specifies the type of the id. Helps on filtering on Trust resolvement.
+      // Claim made about the subject. The format is specified by the version property in the header section.
+      "claim": {
+        "trust": true, // Endicates if the subject is trusted or not.
+        "confirm": true // Endicates if the subject is confirmed to be real.
+      },
+      // This is a cost when resolving the trust. A more nodes are followed with low values.
+      // The cost property can only have a value below 100 if the subject signature is provided. This helps e.g. search companies.
+      // The cost value cannot be below 1.
+      "cost": 100,
+      "activate": 1231006505, // When will the trust be active.
+      "expire": 2231006505, // When will the trust deactivate.
+      // Scope is used to filter on trust resolvement. It can be any text
+      "scope": "global", // The scope could also be specefic to country, area, products, articles or social medias etc.
+      "scopetype": "name", // The type of scope helps to define advanced formats of scope. (my be removed in ver.1)
     }
   ],
+  // The entity that issues the trust to the subject.
+  // The issuer property is required and is needed for signing the trust.
   "issuer": {
+    // ID of the issuer, format specified in head->script
     "id": "1DuDZDtoLfNHrmSY2QUCWu..."
   },
+  // The build server packaging the trust and publishing it.
+  // The server property is optional and can be provided on a package level.
   "server": {
+    // ID of the server, format specified in head->script
     "id": "1HQkogrxHpobnrtPkeHuBm9r4s..."
   },
+  // Ensure that the trust can be identified at specific time.
+  // Enables the Trustchain system to replace old trust.
   "timestamp": [
     {
-      "blockchain": "bitcoin",
-      "hash": "SHA160",
-      "path": "MHg2ODU4ZmNkNDhmMjg1OGI4MWFmZGRmYmI0MmZ..."
+      "blockchain": "bitcoin", 
+      "hash": "SHA160", // Different timestamp services may use different hash algos to calculate the root.
+      "path": "MHg2ODU4ZmNkNDhmMjg1OGI4MWFmZGRmYmI0MmZ..." // Combined the the Trust hash, the path is the used for calculating the root.
     },
     {
       "blockchain": "ethereum",
-      "hash": "SHA3",
+      "hash": "SHA3", // Different timestamp services may use different hash algos to calculate the root.
       "path": "MHhiN2ZmZjQ5MDAwNWUyOWM4YmFhNjY4NzA3NmZ..."
     }
   ],
+  // Signature is seperated so it is not included in the hash of the trust
+  // Hash of a trust is combined by: head, subject, issuer and server properties
+  // excluding the timestamp and signature properties.
   "signature": {
     "issuer": "VGhpcyBpcyB0aGUgc2lnbmF0dXJlIGZvciB0aGUgaXNzdWVy",
-    "server": "VGhlIHNlcnZlciBoYXMgaXRzIG93biBzaWduYXR1cmUNCg=="
+    "server": "VGhlIHNlcnZlciBoYXMgaXRzIG93biBzaWduYXR1cmUNCg==",
+    // The signature of the subject id. This proves that the issuer also controls the subject key and therefore enabling the
+    // lowering of the cost property value.
+    // The signature is made from the same challenged hash that the issuer signature uses.
+    "subject": [ "" ] // The array of signatures matching the order of the subject array.
   }
 }

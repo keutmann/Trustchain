@@ -12,18 +12,18 @@
       "type": "person", // Specifies the type of the id. Helps on filtering on Trust resolvement.
       // Claim made about the subject. The format is specified by the version property in the header section.
       "claim": {
-        "trust": true, // Endicates if the subject is trusted or not.
-        "confirm": true // Endicates if the subject is confirmed to be real.
+        "trust": true, // Indicates if the subject is trusted or not.
+        "confirm": true // Indicates if the subject is confirmed to be real.
       },
       // This is a cost when resolving the trust. A more nodes are followed with low values.
       // The cost property can only have a value below 100 if the subject signature is provided. This helps e.g. search companies.
       // The cost value cannot be below 1.
       "cost": 100,
-      "activate": 1231006505, // When will the trust be activate.
-      "expire": 2231006505, // When will the trust deactivate.
+      "activate": 1231006505, // When will the trust be activated. Optional.
+      "expire": 2231006505, // When will the trust be deactivated. Optional.
       // Scope is used to filter on trust resolvement. It can be any text
-      "scope": "global", // The scope could also be specefic to country, area, products, articles or social medias etc.
-      "scopetype": "name", // The type of scope helps to define advanced formats of scope. (my be removed in ver.1)
+      "scope": "global", // The scope could also be specific to country, area, products, articles or social medias etc.
+      "scopetype": "name" // The type of scope helps to define advanced formats of scope. (my be removed in ver.1)
     }
   ],
   // The entity that issues the trust to the subject.
@@ -42,9 +42,9 @@
   // Enables the Trustchain system to replace old trust.
   "timestamp": [
     {
-      "blockchain": "bitcoin", 
+      "blockchain": "bitcoin",
       "hash": "SHA160", // Different timestamp services may use different hash algos to calculate the root.
-      "path": "MHg2ODU4ZmNkNDhmMjg1OGI4MWFmZGRmYmI0MmZ..." // Combined the the Trust hash, the path is the used for calculating the root.
+      "path": "MHg2ODU4ZmNkNDhmMjg1OGI4MWFmZGRmYmI0MmZ..." // Combined the Trust hash, the path is the used for calculating the root.
     },
     {
       "blockchain": "ethereum",

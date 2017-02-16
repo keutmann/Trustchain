@@ -19,7 +19,7 @@
       // The cost property can only have a value below 100 if the subject signature is provided. This helps e.g. search companies.
       // The cost value cannot be below 1.
       "cost": 100,
-      "activate": 1231006505, // When will the trust be active.
+      "activate": 1231006505, // When will the trust be activate.
       "expire": 2231006505, // When will the trust deactivate.
       // Scope is used to filter on trust resolvement. It can be any text
       "scope": "global", // The scope could also be specefic to country, area, products, articles or social medias etc.

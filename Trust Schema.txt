@@ -8,7 +8,6 @@
   // The issuer property is required and is needed for signing the trust.
   "issuer": [
       {
-          "index": 0, // Used with signature identification
           // ID of the issuer, format specified in head->script
           "id": "1DuDZDtoLfNHrmSY2QUCWu...",
           // Hash of a trust is combined by: head, issuer, subject
@@ -17,7 +16,6 @@
           // The subject is the target of trust, issued by the issuer!
           "subject": [
           {
-              "index": 0,
               "id": "1ERgQJdwncLvXv16mQaKu...", // id of the subject, format specified in head->script.
               "idtype": "person", // Specifies the type of the id. Helps on filtering on Trust resolvement.
               // Claim made about the subject. The format is specified by the version property in the header section.

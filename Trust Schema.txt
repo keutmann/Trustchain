@@ -10,9 +10,10 @@
       {
           // ID of the issuer, format specified in head->script
           "id": "1DuDZDtoLfNHrmSY2QUCWu...",
-          // Hash of a trust is combined by: head, issuer, subject
-          // excluding the signature property.
+          // Hash of a trust is combined by: issuer, subject excluding the signature and script property.
           "signature": "",
+          // Script definition not included in signature calc.
+          "script": "btc-pkh",
           // The subject is the target of trust, issued by the issuer!
           "subject": [
           {

@@ -1,13 +1,13 @@
 {
-  "merkle": "tc1-hash256", // The algo for the merkletree calucation and the hashing algo used. Hash256 is dubble Sha256.
-  "id": "", // Merkle id of the trusts
+  "algorithm": "merkle.tc1-double256", // Merkle=Merkle algo, tc1=Trustchain version 1, double256=sha256(sha256))
+  "id": "", // Merkle root of the trust ids.
   "trusts": [
     {
-      "hash": "hash256", // Algo to be used for calculating the id of the trust.
+      "algorithm": "double256", // Algo to be used for calculating the id of the trust. Default double sha256
       "id": "i/Pd9j9fDh0GGt5pPhAQfq2RsI8mcYmM/vfNhm1Qql0=", // A hash of the binary combined value of the trust
       "issuer": {
         "script": "btc-pkh",
-        "id": "F2u5DwkfJUjVDy7gCDp68hbQUDM=",
+        "id": "F2u5DwkfJUjVDy7gCDp68hbQUDM=", // Base64 encoding of a 20 byte address
         "signature": "H/hqGOZwZNz2/rz0udzyx4eHLzTMvx67ASmp0whBbjq0JAoJokrRnDAWsHNgBQtlYifoH3SG5pjbgS/9+H4Ukuc="
       },
       "subjects": [
@@ -24,15 +24,15 @@
           // Claim made about the subject. The format is specified by the version property in the header section.
           "data": [
             {
-              "kind": "tc-binarytrust-1.0",
+              "kind": "tc-binarytrust-1.0", // tc=Trustchain, binarytrust=graph, 1.0=version
               "trust": true, // Endicates if the subject is trusted or not.
               "confirm": true, // Endicates if the subject is confirmed to be real.
-              "reason": "....." // Some text describing the reason for the trust.
+              "reason": "....." // Some text describing the reason for the trust. Max 100 bytes
             }
           ],
           // This is a cost when resolving the trust. A more nodes are followed with low values.
           // The cost property can only have a value below 100 if the subject signature is provided. This helps e.g. search companies.
-          // The cost value cannot be below 1.
+          // The cost value cannot be below 1 (avoid infinite loop).
           "cost": 100,
           "activate": 1231006505, // When will the trust be active. unixepoch
           "expire": 2231006505, // When will the trust deactivate. unixepoch
@@ -42,15 +42,16 @@
       ],
       // The timestamp is used when the trust is repackaged into an other package
       "timestamp": {
-        "merkle": "tc1-hash256", // The algo for the merkletree calucation and the hashing algo used. Hash256 is dubble Sha256.
+        "algorithm": "merkle.tc1-double256", // Merkle=Merkle algo, tc1=Trustchain version 1, double256=sha256(sha256))
         "recipt": "", // Merkletree path, used for recreating the merkle root value.
         // The package timestamp comes from the original package. Makes it possible to calculate the root hash for timestamp verification.
-        "packageTimestamps": [
+        "package": [
           {
             "blockchain": "btc",
-            "merkle": "tc1-hash256",
+            "algorithm": "merkle.tc1-double256", // Merkle=Merkle algo, tc1=Trustchain version 1, double256=sha256(sha256))
             "time": 123455,
-            "recipt": ""
+            "recipt": "",
+            "service": "" // Optional, the url of the service provided the timestamp
           }
         ]
       }
@@ -60,16 +61,16 @@
   "server": {
     "script": "btc-pkh",
     "id": "",
-    "alias": "ServerAlias",
     "signature": ""
   },
   // Timestamps of the package
-  "timestamps": [
+  "timestamps": [ // Array of timestamps, then fast and slow timestamps are possible
     {
-      "blockchain": "btc",
-      "merkle": "tc1-hash256",
-      "time": 123455,
-      "recipt": "" // Merkletree path, used for recreating the merkle root value.
+      "blockchain": "btc", // The blockchain used for the timestamp
+      "algorithm": "merkle.tc1-double256", // Merkle=Merkle algo, tc1=Trustchain version 1, double256=sha256(sha256))
+      "time": 123455, // Transaction time used for the timestamp
+      "recipt": "", // Merkletree path, used for recreating the merkle root value.
+      "service": "" // Optional, the url of the service provided the timestamp
     }
   ]
 }

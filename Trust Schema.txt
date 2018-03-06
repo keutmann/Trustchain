@@ -15,14 +15,15 @@
           "alias": "MyAlias", // The issuers name for the subject.
           "claimIndexs": [ 0 ], // One or more claims can be attached to the subject
           "address": "1ERgQJdwncLvXv16mQaKu...", // id of the subject, format specified in script.
+          "signature", null // If added this profs that the issuer also owns the subject, enabling a lower claim cost.
         }
       ],
       "claims": [
         {
           "index": 0, // Optional, specify index, if the possibility of claim object gets reordered.
           "type": "binarytrust.tc1", // tc=Trustchain, binarytrust=graph, 1=version
-          // Claim made about the subject. The format is specified by the version property in the header section.
-          "data": [
+          // Claim made about the subject. The format is specified by the type property.
+          "attributes": [
             {
               "trust": true, // Endicates if the subject is trusted or not.
               "confirm": true, // Endicates if the subject is confirmed to be real.
@@ -30,8 +31,8 @@
             }
           ],
           // This is a cost when resolving the trust. A more nodes are followed with low values.
-          // The cost property can only have a value below 100 if the subject signature is provided. This helps e.g. search companies.
-          // The cost value cannot be below 1 (avoid infinite loop).
+          // The cost property can only have a value below 100 if the subject signature is provided. This helps e.g. searching
+          // deeper than 3 levels. The cost value cannot be below 1 (avoid infinite loop).
           "cost": 100,
           "activate": 1231006505, // When will the trust be active. unixepoch
           "expire": 2231006505, // When will the trust deactivate. unixepoch
@@ -43,7 +44,8 @@
       "timestamp": {
         "algorithm": "merkle.tc1-double256", // Merkle=Merkle algo, tc1=Trustchain version 1, double256=sha256(sha256))
         "recipt": "", // Merkletree path, used for recreating the merkle root value.
-        // The package timestamp comes from the original package. Makes it possible to calculate the root hash for timestamp verification.
+        // The package timestamp comes from the original package. Makes it possible to calculate the root hash for
+        // timestamp verification.
         "package": [
           {
             "blockchain": "btc",

@@ -14,7 +14,6 @@
       "subjectSignature": null, // If added this profs that the issuer also owns the subject, enabling a lower claim cost.
 
       "type": "binarytrust.tc1", // tc=Trustchain, binarytrust=graph, 1=version
-      // Claim made about the subject. The format is specified by the type property.
       // Scope is used to filter on trust resolvement. It can be any text
       "scope": "www.domain.com", // The scope could also be specefic to country, area, products, articles or social medias et
 

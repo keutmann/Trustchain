@@ -5,6 +5,7 @@
     {
       "algorithm": "double256", // Algo to be used for calculating the id of the trust. Default double sha256
       "id": "i/Pd9j9fDh0GGt5pPhAQfq2RsI8mcYmM/vfNhm1Qql0=", // A hash of the binary combined value of the trust
+      "created": 12345678, // Time the trust was created (Unix time format)
       "issuerScript": "btc-pkh", // Bitcoin-public key hash
       "issuerAddress": "F2u5DwkfJUjVDy7gCDp68hbQUDM=", // Base64 encoding of a 20 byte address
       "issuerSignature": "H/hqGOZwZNz2/rz0udzyx4eHLzTMvx67ASmp0whBbjq0JAoJokrRnDAWsHNgBQtlYifoH3SG5pjbgS/9+H4Ukuc=",
@@ -13,20 +14,19 @@
       "subjectScript": "btc-pkh", // Only needed for signature verification
       "subjectSignature": null, // If added this profs that the issuer also owns the subject, enabling a lower claim cost.
 
-      "type": "binarytrust.tc1", // tc=Trustchain, binarytrust=graph, 1=version
+      "trustType": "binarytrust.tc1", // tc=Trustchain, binarytrust=graph, 1=version
+      "attributes": "{ 'trust': true }" // Endicates if the subject is trusted or not.
+
+      "scopeType": "domain", // specifies the format of the scope attribute.
       // Scope is used to filter on trust resolvement. It can be any text
       "scope": "www.domain.com", // The scope could also be specefic to country, area, products, articles or social medias et
 
-      "attributes": {
-          "trust": true // Endicates if the subject is trusted or not.
-      },
       // This is a cost when resolving the trust. A more nodes are followed with low values.
       // The cost property can only have a value below 100 if the subject signature is provided. This helps e.g. searching
       // deeper than 3 levels. The cost value cannot be below 1 (avoid infinite loop).
       "cost": 100,
       "activate": 1231006505, // When will the trust be active. unixepoch
       "expire": 2231006505, // When will the trust deactivate. unixepoch
-      "note": "", // Some text describing the reason for the trust. Max 100 bytes
       // The timestamp is used when the trust is repackaged into an other package
       "timestamp": {
         "algorithm": "merkle.tc1-double256", // Merkle=Merkle algo, tc1=Trustchain version 1, double256=sha256(sha256))

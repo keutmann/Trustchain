@@ -13,7 +13,7 @@ A blockchain is very good at controlling ownership of a token, and ensuring that
 
 
 ##Trust schema
-
+```
 {
 "head": {
 "version": "standard 0.1.0",
@@ -48,7 +48,7 @@ A blockchain is very good at controlling ownership of a token, and ensuring that
 "server": "VGhlIHNlcnZlciBoYXMgaXRzIG93biBzaWduYXR1cmUNCg=="
 }
 }
-
+```
 
 The explanation of the Trust entry with following properties.
 

@@ -6,7 +6,7 @@ With the introduction of the World Wide Web, the possibility for everybody to pr
 The reputation of a few persons could easily be manage, however for a single person to manage the reputation of many others only known loosely, becomes an exhausting task. Relying on friends and family’s trust network may help but usually they are not available at the time or do not even have the same interest sphere. Further the possibility to be anonymous and still provide content make it hard for the reader to verify if the message is authentic.
 
 ## Digital Trust Protocol (DTP)
-The protocol defines a way to handle trust in the digital world. The idea is to make it possible for everybody to leverage the trust network of anybody else. The goal of the DTP system is it will be able to be used for literally anything, this includes anything from trust, security, rating and identity. 
+The protocol defines a way to handle trust in the digital world. The idea is to use the trust network of your social network and ignore anything else. The goal of the DTP system is that it can be used for literally anything trust related, like security, rating and identity.
 
 The system works by a person named Alice trust another person named Bob that trust his Car mechanic. Alice can now check the trust of the Car mechanic without asking Bob for his advice first, this work by querying Alice own trust network on a graph server. The final trust result will depend on Bob's trust to the Car mechanic. Trust is subjective and therefore it should be resolved in a subjective way, this will eliminate the influence from others that are not within Alice trusted network. 
 

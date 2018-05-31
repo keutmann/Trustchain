@@ -1,14 +1,16 @@
-# Trustchain
+# Digital Trust Protocol
 Decentralized trust
 
 ## Introduction
 With the introduction of the World Wide Web, the possibility for everybody to produce content that could potentially each anyone else became possible, however, one crucial element was digitally left behind - Trust. 
 The reputation of a few persons could easily be manage, however for a single person to manage the reputation of many others only known loosely, becomes an exhausting task. Relying on friends and family’s trust network may help but usually they are not available at the time or do not even have the same interest sphere. Further the possibility to be anonymous and still provide content make it hard for the reader to verify if the message is authentic.
 
-## Trustchain 
-The specified protocol will try to put back the trust system into the digital world. The idea is to make it possible for everybody to leverage the trust network of anybody else. The goal of the Trustchain system is it will be able to be used for literally anything, this includes anything from trust, security and identity.
-The system works by a person named Alice trust another person named Bob that then trust his Car mechanic. Alice can now check the trust of the Car mechanic without asking Bob for his advice first. The final trust result will depend on a calculation of the trust from Alice to Bob to the Car mechanic. Also known as a chain of trust. The Trust is one way and the mechanic may not know that Bob has trusted him. The mechanic can only find out if he knows about Bob’s public key address. 
+## Digital Trust Protocol (DTP)
+The protocol defines a way to handle trust in the digital world. The idea is to make it possible for everybody to leverage the trust network of anybody else. The goal of the DTP system is it will be able to be used for literally anything, this includes anything from trust, security, rating and identity. 
+The system works by a person named Alice trust another person named Bob that trust his Car mechanic. Alice can now check the trust of the Car mechanic without asking Bob for his advice first, this work by querying Alice own trust network on a graph server. The final trust result will depend on a calculation of the trust from Alice to Bob to the Car mechanic. Also known as a chain of trust. Trust is subjective and therefore it should be resolved in a subjective way, this will eliminate the influence from others that are not within Alice trusted network. 
 The Trust system is not limited to only person’s trust. It will work on everything, like persons, software, products and organizations. Because it is always possible to create some digital representation of something physical, it is possible to Trust it. 
+A trust is a small piece of data with a claim attached to it. It is signed by the creator by used of a Public/Private key algo. When the trust is send to a DTP Graph Server, it will be time stamped by using a blockchain. The signing and timestamping will make the trust secure from tampering of any kind, this will enable the DTP Server to share the trust with other DTP Servers without the risk of tampering.
+
 
 ## Potential use
 ### Trust

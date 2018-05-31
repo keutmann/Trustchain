@@ -8,11 +8,11 @@ The reputation of a few persons could easily be manage, however for a single per
 ## Digital Trust Protocol (DTP)
 The protocol defines a way to handle trust in the digital world. The idea is to make it possible for everybody to leverage the trust network of anybody else. The goal of the DTP system is it will be able to be used for literally anything, this includes anything from trust, security, rating and identity. 
 
-The system works by a person named Alice trust another person named Bob that trust his Car mechanic. Alice can now check the trust of the Car mechanic without asking Bob for his advice first, this work by querying Alice own trust network on a graph server. The final trust result will depend on a calculation of the trust from Alice to Bob to the Car mechanic. Also known as a chain of trust. Trust is subjective and therefore it should be resolved in a subjective way, this will eliminate the influence from others that are not within Alice trusted network. 
+The system works by a person named Alice trust another person named Bob that trust his Car mechanic. Alice can now check the trust of the Car mechanic without asking Bob for his advice first, this work by querying Alice own trust network on a graph server. The final trust result will depend on Bob's trust to the Car mechanic. Trust is subjective and therefore it should be resolved in a subjective way, this will eliminate the influence from others that are not within Alice trusted network. 
 
 The Trust system is not limited to only person’s trust. It will work on everything, like persons, software, products and organizations. Because it is always possible to create some digital representation of something physical, it is possible to Trust it. 
 
-A trust is a small piece of data with a claim attached to it. It is signed by the creator by used of a Public/Private key algo. When the trust is send to a DTP Graph Server, it will be time stamped by using a blockchain. The signing and timestamping will make the trust secure from tampering of any kind, this will enable the DTP Server to share the trust with other DTP Servers without the risk of tampering.
+A trust is a small piece of data with a claim attached to it. It is signed by the creator using a Public/Private key algorithm. When the trust is send to a DTP Server, it will be time stamped by using a blockchain. The trust is stored on a DTP server in a graph data structure, this makes it possible to query for trust in a subjective way. The signing and timestamping will make the trust secure from tampering of any kind, this will enable the DTP Server to share the trust with other 3rd party DTP Servers without the risk of tampering.
 
 
 ## Potential use
